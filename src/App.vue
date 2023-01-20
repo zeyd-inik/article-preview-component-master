@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 const menuIsVisible = ref(false);
+
 const showMenu = () => {
     menuIsVisible.value = true;
 };
@@ -32,7 +33,7 @@ const hideMenu = (e) => {
                 </h1>
                 <p class="text">
                     Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and
-                    uninviting. I’ve got some simple tips to help you make any room feel complete
+                    uninviting. I've got some simple tips to help you make any room feel complete
                 </p>
                 <div class="user_container">
                     <!-- show-hide element -->
@@ -117,6 +118,12 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
         background-color: white;
         border-radius: 1rem;
         box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        @media (min-width: 1024px) {
+            flex-direction: row;
+            max-height: 30vh;
+            min-height: 300px;
+            max-width: 80vw;
+        }
 
         .background_image_container {
             width: 100%;
@@ -125,6 +132,11 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
             background-size: cover;
             background-position: center 20%;
             background-repeat: no-repeat;
+            @media (min-width: 1024px) {
+                height: 100%;
+                width: 40%;
+                background-position: center;
+            }
         }
         .info_container {
             width: 100%;
@@ -136,6 +148,9 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
             align-items: flex-start;
             text-align: start;
             line-height: 1.5;
+            @media (min-width: 1024px) {
+                width: 60%;
+            }
 
             .title {
                 font-size: 1.2rem;
@@ -166,6 +181,7 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
                 position: relative;
 
                 padding: 1rem 2rem 1rem;
+
                 /* show-hide share menu */
                 .share_menu {
                     position: absolute;
@@ -180,6 +196,9 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
                     border-radius: 0 0 1rem 1rem;
                     padding: 1.2rem;
                     z-index: 3;
+                    @media (min-width: 1024px) {
+                        display: none;
+                    }
 
                     span {
                         margin-right: 0.7rem;

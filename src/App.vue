@@ -5,18 +5,14 @@ const menuIsVisible = ref(false);
 const showMenu = () => {
     menuIsVisible.value = true;
 };
+
 const hideMenu = (e) => {
-    if (menuIsVisible.value === false) {
-        if (e.target.classList.contains('img2') || e.target.classList.contains('btn2')) {
-            return;
-        }
-    } else if (
+    if (
         e.target.classList.contains('share_menu') ||
-        e.target.classList.contains('share_icon_container') ||
-        e.target.classList.contains('img2') ||
-        e.target.parentElement.classList.contains('share_menu')
+        e.target.parentElement.classList.contains('share_menu') ||
+        e.target.classList.contains('img')
     ) {
-        return;
+        menuIsVisible.value = true;
     } else {
         menuIsVisible.value = false;
     }
@@ -49,8 +45,6 @@ const hideMenu = (e) => {
                             <!-- show-hide element finish here -->
                         </div>
                     </Transition>
-                    <!-- !here HTML -->
-
                     <div class="user_image_container">
                         <img src="../src/images/avatar-michelle.jpg" alt="avatar" />
                     </div>
@@ -58,7 +52,7 @@ const hideMenu = (e) => {
                         <h3 class="user_name">Michelle Appleton</h3>
                         <p class="date">28 Jun 2020</p>
                     </div>
-                    <div @click="showMenu" class="share_icon_container btn2">
+                    <div @click.stop="showMenu" class="share_icon_container btn2">
                         <img class="img2" src="../src/images/icon-share.svg" alt="share icon" />
                     </div>
                 </div>
@@ -208,7 +202,6 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
                     }
 
                     .share_icon_container {
-                        margin-left: initial;
                         margin-left: auto;
                     }
                     .social_icon {

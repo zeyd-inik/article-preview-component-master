@@ -286,7 +286,6 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
                         background-color: hsl(208, 14%, 79%);
                     }
                     &:active {
-                        transform: scale(0.98);
                         box-shadow: 0px 0px 10px 0px rgb(158, 158, 215);
                     }
                     img {

@@ -88,6 +88,9 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
 .share-enter-from,
 .share-leave-to {
     transform: translateY(100%);
+    @media (min-width: 1024px) {
+        opacity: 0;
+    }
 }
 
 #app {
@@ -117,6 +120,7 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
             max-height: 30vh;
             min-height: 300px;
             max-width: 80vw;
+            overflow: visible;
         }
 
         .background_image_container {
@@ -177,10 +181,11 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
                 padding: 1rem 2rem 1rem;
 
                 /* show-hide share menu */
+
                 .share_menu {
                     position: absolute;
                     bottom: 0;
-                    left: 0;
+                    right: 0;
                     background-color: $Very-Dark-Grayish-Blue;
                     width: 100%;
                     height: 100%;
@@ -191,7 +196,23 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
                     padding: 1.2rem;
                     z-index: 3;
                     @media (min-width: 1024px) {
-                        display: none;
+                        top: 0;
+                        right: 0;
+                        transform: translate(30%, -100%);
+                        width: 60%;
+                        height: 60%;
+                        border-radius: 50px;
+                        ::before {
+                            content: '';
+                            position: absolute;
+                            bottom: -20%;
+                            left: 50%;
+                            width: 0;
+                            height: 0;
+                            border-left: 1rem solid transparent;
+                            border-right: 1rem solid transparent;
+                            border-top: 1rem solid $Very-Dark-Grayish-Blue;
+                        }
                     }
 
                     span {
@@ -203,6 +224,11 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
 
                     .share_icon_container {
                         margin-left: auto;
+                        hover {
+                            @media (min-width: 1024px) {
+                                z-index: 77;
+                            }
+                        }
                     }
                     .social_icon {
                         width: 1.3rem;
@@ -257,7 +283,6 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
                     transition: all 0.1s ease-in-out;
                     user-select: none;
                     &:hover {
-                        transform: scale(1.1);
                         background-color: hsl(208, 14%, 79%);
                     }
                     &:active {
